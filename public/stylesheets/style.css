@@ -1,3 +1,10 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border-style: border-box;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +12,26 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+
+#flight-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#flight-table {
+  width: 50%;
+  margin: 20px
+}
+
+thead {
+  text-align: left;
+  padding: 0px 0px 10px 0px;
+  
+}
+
+thead > tr {
+  border-bottom: 1px solid black;
 }
