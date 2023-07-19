@@ -30,8 +30,32 @@ const create = async (req, res) => {
       }
 }
 
+const show = async (req, res) => {
+    try {
+        const flight = await Flight.findById(req.params.id);
+        res.render('flights/show', {
+            flight
+        })
+    } catch (err) {
+        console.log(err);
+        res.render('flights/show', {
+            errorMsg: err.message
+        });
+    }
+}
+
+const addDestination = async (req, res) => {
+    const flight = await Flight.findById(req.params.id);
+    flight.destinations.push(req.body);
+    console.log(flight);
+    flight.save();
+    res.redirect(`/flights/${req.params.id}`);
+}
+
 module.exports = {
     index,
     new: newFlight,
-    create
+    create,
+    show,
+    addDestination
 }

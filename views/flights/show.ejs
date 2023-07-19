@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<h2>Flight No: <%= flight.flightNo %></h2>
+<p>Airline: <%= flight.airline %></p>
+<p>AirPort: <%= flight.airport %></p>
+<p>Departs: <%= `${flight.departs.toLocaleDateString()} : ${flight.departs.toLocaleTimeString()}` %></p>
+<p>Destinations: </p>
+<ul>
+    <% flight.destinations.forEach(d => { %>
+        <li><%= `Airport: ${d.airport} Arrival:  ${d.arrival.toLocaleDateString("en-US")} : ${d.arrival.toLocaleTimeString("en-US")}` %></li>
+    <% }) %>
+</ul>
+<form 
+    action="/flights/<%= flight.id %>/destination"
+    method="POST"
+>
+    <label for="airport">Airport: </label>
+    <select name="airport" id="airport">
+        <option value="LAX">LAX</option>
+        <option value="AUS">AUS</option>
+    </select>
+    <label for="arrival">Arrival: </label>
+    <input type="datetime-local" name="arrival">
+    <button type="submit">Add Destination</button>
+</form>
+
+<%- include('../partials/footer') %>
