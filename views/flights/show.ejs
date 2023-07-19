@@ -1,27 +1,78 @@
 <%- include('../partials/header') %>
 
-<h2>Flight No: <%= flight.flightNo %></h2>
+<!-- <section class="flex-center width-50 height-50" id="flight-show"> -->
+    <div class="show-grid width-50" id="flight-show">
+        <div class="item-2 flex-center">
+            <h4>Flight No.</h4>
+            <p><%= flight.flightNo %></p>
+        </div>
+        <div class="item-2 flex-center">
+            <h4>Airline</h4>
+            <p><%= flight.airline %></p>
+        </div>
+        <div class="item-2 flex-center">
+            <h4>Departs</h4>
+            <p><%= `${flight.departs.toLocaleDateString()} : ${flight.departs.toLocaleTimeString()}` %></p>
+        </div>
+        <div class="item-2 flex-center">
+            <h4>Airport</h4>
+            <p><%= flight.airport %></p>
+        </div>
+        <div class="item-4 flex-center">
+            <h4>Destination<%= flight.destinations.length > 1 && 's' %></h4>
+            <div class="destination-detial">
+                <h5>Airport</h5>
+                <h5>Arrival</h5>
+            <%- flight.destinations.map(d => {
+                return `<p>${d.airport} </p> 
+                <p>${d.arrival.toLocaleTimeString()}: ${d.arrival.toLocaleDateString()}</p>`
+            }).join("") %>
+            </div>
+            <form 
+                class="width-100"
+                action="/flights/<%= flight.id %>/destination"
+                method="POST"
+            >
+            <div class="destination-detial seperate">
+                <!-- <label for="airport">Airport: </label> -->
+                <div class="flex-center">
+                    <select name="airport" id="airport">
+                        <option value="LAX">LAX</option>
+                        <option value="AUS">AUS</option>
+                    </select>
+                </div>
+                <div class="flex-center">
+                    <!-- <label for="arrival">Arrival: </label> -->
+                    <input type="datetime-local" name="arrival">
+                </div>
+                <div class="flex-center item-2">
+
+                    <button class="item-2" type="submit">Add Destination</button>
+                </div>
+            </div>
+            
+        </form>
+        </div>
+        <div class="item-4"></div>
+    </div>
+<!-- </section> -->
+<!-- <h2>Flight No: <%= flight.flightNo %></h2>
 <p>Airline: <%= flight.airline %></p>
 <p>AirPort: <%= flight.airport %></p>
 <p>Departs: <%= `${flight.departs.toLocaleDateString()} : ${flight.departs.toLocaleTimeString()}` %></p>
-<p>Destinations: </p>
-<ul>
+<p>Destinations: </p> -->
+<!-- <ul>
     <% flight.destinations.forEach(d => { %>
         <li><%= `Airport: ${d.airport} Arrival:  ${d.arrival.toLocaleDateString("en-US")} : ${d.arrival.toLocaleTimeString("en-US")}` %></li>
     <% }) %>
+</ul> -->
+
+
+<!-- show ticket list -->
+<ul>
+<%- tickets.map(ticket => `<li>${ticket.seat}</li>` ) %>
 </ul>
-<form 
-    action="/flights/<%= flight.id %>/destination"
-    method="POST"
->
-    <label for="airport">Airport: </label>
-    <select name="airport" id="airport">
-        <option value="LAX">LAX</option>
-        <option value="AUS">AUS</option>
-    </select>
-    <label for="arrival">Arrival: </label>
-    <input type="datetime-local" name="arrival">
-    <button type="submit">Add Destination</button>
-</form>
+<a href="/tickets/new" class="btn-primary"></a>
+
 
 <%- include('../partials/footer') %>

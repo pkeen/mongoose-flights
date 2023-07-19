@@ -1,37 +1,146 @@
+html {
+  box-sizing: border-box
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;1,200&display=swap');
 
 * {
   margin: 0;
   padding: 0;
-  border-style: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+:root {
+  --main-bg-color: rgb(32, 48, 55);
+  --primary-color: #cf44b3;
+}
+
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-
-
-#flight-index {
+  min-height: 100vh;
+  /* background-color: var(--main-bg-color); */
+  background: rgb(2,0,36);
+  /* background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 69%, rgba(32,83,93,1) 100%); */
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,37,52,1) 69%, rgba(36,41,42,1) 100%);
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  flex: 0, 0, 100px;
+  min-height: 80px;
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1, h2, h3, h4, h5 , h6, p, th, tr, form , li {
+  color: white
+}
+
+.flex-center {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
-#flight-table {
+.grid-5 {
+  display: grid;
+  height: 50%;
+  grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+  grid-template-rows: 2fr;
+}
+
+.show-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  height: 100%;
+  width: 100%;
+}
+
+.item {
+  grid-column: span 1;
+}
+
+.item-2 {
+  grid-column: span 2;
+}
+
+.item-4 {
+  grid-column: span 4;
+  border: 1px solid red;
+}
+
+.width-50 {
   width: 50%;
-  margin: 20px
 }
 
-thead {
+.height-50 {
+  height: 50%;
+}
+
+.text-left {
   text-align: left;
-  padding: 0px 0px 10px 0px;
-  
 }
 
-thead > tr {
-  border-bottom: 1px solid black;
+.mg-1 {
+  margin: 1rem;
+}
+
+.mg-1 > div {
+  padding: .5rem;
+}
+
+.mg-auto {
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid grey;
+  /* border-radius: 10px; */
+}
+
+th, td {
+  padding: .25rem;
+  border: 1px solid grey;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  padding: 0.2rem;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.red > p {
+  color: red;
+}
+
+#flight-show {
+  height: 400px;
+}
+
+.destination-detial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  text-align: center;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.seperate {
+  border-top: 1px solid white;
 }
