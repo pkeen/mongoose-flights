@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const seatValidator = (v) => {
     return /[A-F][1-9][1-9]?/.test(v);
 }

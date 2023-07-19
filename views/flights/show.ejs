@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 
 <!-- <section class="flex-center width-50 height-50" id="flight-show"> -->
+    <h2>Flight Details</h2>
     <div class="show-grid width-50" id="flight-show">
         <div class="item-2 flex-center">
             <h4>Flight No.</h4>
@@ -53,19 +54,21 @@
             
         </form>
         </div>
-        <div class="item-4"></div>
+        <div class="item-4 flex-center">
+            <h4>Tickets</h4>
+            <div class="destination-detial">
+                <h5>Seat</h5>
+                <h5>Price</h5>
+                <%- tickets.map(ticket => {
+                    return `<p>${ticket.seat}</p>
+                        <p>${ticket.price}</p>`
+                }) %>
+            </div>
+            <a class="btn-primary" href="/flights/<%= flight._id %>/tickets/new">Add Ticket</a>
+
+        </div>
     </div>
-<!-- </section> -->
-<!-- <h2>Flight No: <%= flight.flightNo %></h2>
-<p>Airline: <%= flight.airline %></p>
-<p>AirPort: <%= flight.airport %></p>
-<p>Departs: <%= `${flight.departs.toLocaleDateString()} : ${flight.departs.toLocaleTimeString()}` %></p>
-<p>Destinations: </p> -->
-<!-- <ul>
-    <% flight.destinations.forEach(d => { %>
-        <li><%= `Airport: ${d.airport} Arrival:  ${d.arrival.toLocaleDateString("en-US")} : ${d.arrival.toLocaleTimeString("en-US")}` %></li>
-    <% }) %>
-</ul> -->
+
 
 
 <!-- show ticket list -->

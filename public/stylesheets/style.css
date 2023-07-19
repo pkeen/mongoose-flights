@@ -144,3 +144,10 @@ section {
 .seperate {
   border-top: 1px solid white;
 }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  text-align: center;
+}
