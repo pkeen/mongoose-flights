@@ -23,7 +23,7 @@
                 <p> <%= `${flight.departs.toLocaleDateString("en-US")} : ${flight.departs.toLocaleTimeString("en-US")}` %></p>
             </div>
             <div <%- Date.now() > flight.departs && 'class=red' %> >
-                <a class="btn-primary mg-auto" href="/flights/<%= flight.id %>">Details</a>
+                <a class="btn-secondary mg-auto" href="/flights/<%= flight.id %>">Details</a>
             </div>
 
         

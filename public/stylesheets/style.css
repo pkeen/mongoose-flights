@@ -8,11 +8,14 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 :root {
   --main-bg-color: rgb(32, 48, 55);
-  --primary-color: #cf44b3;
+  --primary-color: #74c4f2;
+  --secondary-color: #4941f0;
+  --heading-color: #bad0e6;
 }
 
 
@@ -31,12 +34,44 @@ header {
   min-height: 80px;
 }
 
+nav {
+  display: flex;
+  width: 33vw;
+  justify-content: space-around;
+  color: var(--primary-color)
+}
+
 main {
   flex-grow: 1;
 }
 
 h1, h2, h3, h4, h5 , h6, p, th, tr, form , li {
-  color: white
+  color: var(--primary-color)
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--heading-color);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+a {
+  color: var(--primary-color);
+  /* color: white; */
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#plane {
+  font-size: 60px;
 }
 
 .flex-center {
@@ -45,6 +80,22 @@ h1, h2, h3, h4, h5 , h6, p, th, tr, form , li {
   align-items: center;
   flex-direction: column;
   height: 100%;
+}
+
+.flex-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+}
+
+.flex-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0.25rem;
 }
 
 .grid-5 {
@@ -72,7 +123,7 @@ h1, h2, h3, h4, h5 , h6, p, th, tr, form , li {
 
 .item-4 {
   grid-column: span 4;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .width-50 {
@@ -116,10 +167,25 @@ section {
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: white;
   padding: 0.2rem;
   border: 1px solid white;
   border-radius: 10px;
+}
+
+.btn-secondary {
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 0.25rem;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.btn-secondary:hover {
+  color: var(--secondary-color);
+  background-color: white;
+  text-decoration: none;
 }
 
 .red > p {
@@ -150,4 +216,18 @@ section {
   grid-template-columns: 1fr 1fr;
   width: 100%;
   text-align: center;
+}
+
+.grid-2-row {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+}
+
+.p2 > * {
+  padding: .25rem
+}
+
+.plr-5 {
+  padding: .25rem .5rem;
 }
